@@ -54,11 +54,11 @@ class App extends Component {
     firebase.database().ref('messages/' + nextMessage.id).set(nextMessage)
 
 
-    // var updateList = Object.assign([], this.state.message)
-    // updateList.push(nextMessage)
-    // this.setState({
-    //   message: updateList
-    // })
+    var updateList = Object.assign([], this.state.message)
+    updateList.push(nextMessage)
+    this.setState({
+      message: updateList
+    })
   }
 
   render() {
@@ -82,4 +82,4 @@ class App extends Component {
 
 export default ChatRoom;
 
-// ReactDOM.render(<App /> , document.getElementById('app');
+ReactDOM.render(<App /> , document.getElementById('app');
