@@ -19,7 +19,6 @@ class App extends Component {
     }
   }
 
-
   updateMessage(event) {
     console.log('updateMessage'+ event.target.value)
     this.setState({
@@ -81,5 +80,3 @@ class App extends Component {
 }
 
 export default ChatRoom;
-
-ReactDOM.render(<App /> , document.getElementById('app');
