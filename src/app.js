@@ -15,4 +15,12 @@ class App extends Component {
   }
 }
 
-ReactDOM.render(<App headerTitle="Welcome!" contentTitle="Here is a ContenetTitle" contentBody="I am ContenetBody"/> , document.getElementById('app') );
+// ReactDOM.render(<App headerTitle="Welcome!" contentTitle="Here is a ContenetTitle" contentBody="I am ContenetBody"/> , document.getElementById('app') );
+
+App.defaultProps = {
+  headerTitle: 'Default Header',
+  contentTitle: 'Default ContentTitle',
+  contenteBody: 'Default ContentBody'
+};
+
+ReactDOM.render(<App />, docuement.getElementById('app'));
