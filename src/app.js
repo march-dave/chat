@@ -4,23 +4,15 @@ import Header from './components/Header';
 import Content from './components/Content';
 
 class App extends Component {
-
   render() {
-    return (
-      <div>
-        <Header title={this.props.headerTitle} />
-        <Content title={this.props.contentTitle} body={this.props.contentBody} />
-      </div>
-    )
+    return(
+      <Header title={this.props.headerTitle} />
+    );
   }
+
+
 }
 
-// ReactDOM.render(<App headerTitle="Welcome!" contentTitle="Here is a ContenetTitle" contentBody="I am ContenetBody"/> , document.getElementById('app') );
 
-App.defaultProps = {
-  headerTitle: 'Default Header',
-  contentTitle: 'Default ContentTitle',
-  contenteBody: 'Default ContentBody'
-};
 
-ReactDOM.render(<App />, docuement.getElementById('app'));
+ReactDOM.render(<App headerTitle="Welcome!"/>, docuement.getElementById('app'));
