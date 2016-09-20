@@ -7,12 +7,17 @@ class App extends Component {
   render() {
     return(
       <Header title={this.props.headerTitle} />
+      <Content title={this.props.contenetTitle} body={this.props.contentBody} />
+
     );
   }
-
-
 }
 
+App.defaultProps = {
+  headerTitle = "Default header Title",
+  contentTitle = "Default content Title",
+  contenBody = "Default content Body"
+};
 
-
-ReactDOM.render(<App headerTitle="Welcome!"/>, docuement.getElementById('app'));
+const appElement = docuement.getElementById('app'));
+ReactDOM.render(<App />, appElement);
