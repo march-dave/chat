@@ -1,23 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header';
 import Content from './components/Content';
+import Header from './components/Headers';
 
-class App extends Component {
+class App extends React.Component {
   render() {
-    return(
-      <Header title={this.props.headerTitle} />
-      <Content title={this.props.contenetTitle} body={this.props.contentBody} />
-
+    return (
+        <div>
+          <Header title={this.props.headerTitle} />
+          <Content title={this.props.contentTitle} body={this.props.contentBody}/>
+        </div>
     );
   }
 }
 
-App.defaultProps = {
-  headerTitle = "Default header Title",
-  contentTitle = "Default content Title",
-  contenBody = "Default content Body"
-};
+const AppElement = document.getElemenyById('app');
 
-const appElement = docuement.getElementById('app'));
-ReactDOM.render(<App />, appElement);
+RenderDOM.render(<App headerTitle="Welcome Header" contentTitle="Welcome Content" contentBody="Welcome Content Body"/> ,AppElement);
