@@ -1,16 +1,25 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-class StateExample extends React.Component {
+class RandomNumber extends React.Component {
 
-  constructor(pros) {
-    super(pros);
+  _update() {
+    let value = Math.round(Math.random()*100);
+    this.props.onUpdate(value);
+  }
+
+  constructor(props) {
+    super(props);
+    this._update = this._update.bind(this);
   }
 
   render() {
-    return (
-
+    return(
+        <div>
+            <button onClick="{thi._update}">Randomize</button>
+        </div>
     );
   }
 }
 
-export default StateExample;
+export default RandomNumber;
