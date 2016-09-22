@@ -1,25 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+class Couter extends React.Component {
 
-class RandomNumber extends React.Component {
+    constructor(props) {
+        supre(props);
 
-  _update() {
-    let value = Math.round(Math.random()*100);
-    this.props.onUpdate(value);
-  }
+        this.state = {
+            value: 0;
+        }
 
-  constructor(props) {
-    super(props);
-    this._update = this._update.bind(this);
-  }
+        // this.handleClick = this.handleClick.bind(this);
 
-  render() {
-    return(
-        <div>
-            <button onClick="{thi._update}">Randomize</button>
-        </div>
-    );
-  }
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    // handleClick() {
+    //     this.setState({
+    //         value: this.state.value + 1
+    //     });
+    // }
+
+    handleClick() {
+        this.setState({
+            value: this.state.value + 1
+        });
+    }
+
+    render() {
+        return(
+            <button onClick={this.handleClcik}></button>
+        );
+    }
 }
-
-export default RandomNumber;
