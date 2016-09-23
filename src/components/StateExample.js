@@ -1,32 +1,33 @@
-class Couter extends React.Component {
+import React from 'react';
+
+class Count extends React Component {
 
     constructor(props) {
-        supre(props);
+        super(props);
 
         this.state = {
             value: 0;
-        }
+        };
 
-        // this.handleClick = this.handleClick.bind(this);
-
-        this.handleClick = this.handleClick.bind(this);
+        this.handleClcik = this.handleClick.bind(this);
     }
 
-    // handleClick() {
-    //     this.setState({
-    //         value: this.state.value + 1
-    //     });
-    // }
-
     handleClick() {
-        this.setState({
-            value: this.state.value + 1
+        this.setStat({
+            value: this.state.valeu + 1;
         });
     }
 
+
     render() {
-        return(
-            <button onClick={this.handleClcik}></button>
+        return (
+            <button onClick={this.handleClick}></button>
         );
     }
 }
+
+const AppElement =  document.getElementById('app');
+
+RenderDOM(<Count />, AppElement);
+
+export default Count;
