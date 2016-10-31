@@ -73,20 +73,39 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	
+	    _this.state = {
+	      data: 'Initial data...'
+	    };
+	
+	    _this.updateState = _this.updateState.bind(_this);
+	
+	    return _this;
 	  }
 	
 	  _createClass(App, [{
+	    key: 'updateState',
+	    value: function updateState(e) {
+	      this.setState({ data: e.target.value });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        'This is the React App',
-	        _react2.default.createElement(_Content2.default, null)
+	        _react2.default.createElement(_Content2.default, null),
+	        _react2.default.createElement('input', { type: 'text', value: this.state.data, onChange: this.updateState }),
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          this.state.data
+	        )
 	      );
 	    }
 	  }]);
@@ -21506,7 +21525,7 @@
 	      return _react2.default.createElement(
 	        "div",
 	        null,
-	        "This is the Content"
+	        "This is the Content2"
 	      );
 	    }
 	  }]);
