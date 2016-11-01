@@ -99,12 +99,17 @@
 	        'div',
 	        null,
 	        'This is the React App',
-	        _react2.default.createElement(_Content2.default, null),
+	        _react2.default.createElement(_Content2.default, { appHeaderProp: 'This is the Content Props' }),
 	        _react2.default.createElement('input', { type: 'text', value: this.state.data, onChange: this.updateState }),
 	        _react2.default.createElement(
 	          'h4',
 	          null,
 	          this.state.data
+	        ),
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          this.props.appHeaderProp
 	        )
 	      );
 	    }
@@ -113,7 +118,7 @@
 	  return App;
 	}(_react2.default.Component);
 	
-	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(App, { headerPros: 'header Props' }), document.getElementById('app'));
 	
 	// <Header title={this.props.headerTitle} />
 	// <Content title={this.props.contentTitle} body={this.props.contentBody}/>
@@ -21525,7 +21530,18 @@
 	      return _react2.default.createElement(
 	        "div",
 	        null,
-	        "This is the Content2"
+	        "This is the Content2",
+	        _react2.default.createElement(
+	          "h2",
+	          null,
+	          ":::::",
+	          this.props.headerPros
+	        ),
+	        _react2.default.createElement(
+	          "h3",
+	          null,
+	          this.props.contentPros
+	        )
 	      );
 	    }
 	  }]);

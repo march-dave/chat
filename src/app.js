@@ -24,16 +24,18 @@ class App extends React.Component {
     return (
         <div>
           This is the React App
-          <Content />
-
+          <Content appHeaderProp="This is the Content Props"/>
           <input type='text' value={this.state.data} onChange={this.updateState} />
           <h4>{this.state.data}</h4>
+
+          <h5>{this.props.appHeaderProp}</h5>
+
         </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App headerPros="header Props" />, document.getElementById('app'));
 
 // <Header title={this.props.headerTitle} />
 // <Content title={this.props.contentTitle} body={this.props.contentBody}/>
