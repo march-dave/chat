@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
         <div>
           This is the React App
-        <Content headerPros={this.props.contentProp}/>
+          <Content headerPros={this.props.contentProp}/>
           <input type='text' value={this.state.data} onChange={this.updateState} />
           <h4>{this.state.data}</h4>
 
@@ -35,7 +35,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App appHeaderProp="header Props" contentProp="I am the Content Props" />, document.getElementById('app'));
+ReactDOM.render(<App appHeaderProp="header Props22222" contentProp="I am the Content Props" />, document.getElementById('app'));
 
 // <Header title={this.props.headerTitle} />
 // <Content title={this.props.contentTitle} body={this.props.contentBody}/>
