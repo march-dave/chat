@@ -9,7 +9,8 @@ class App extends React.Component {
       super(props);
 
       this.state = {
-         data: 'Initial data...'
+        //  data: 'Initial data...'
+        data: []
       }
 
       this.updateState = this.updateState.bind(this);

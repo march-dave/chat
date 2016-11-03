@@ -79,7 +79,8 @@
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
 	    _this.state = {
-	      data: 'Initial data...'
+	      //  data: 'Initial data...'
+	      data: []
 	    };
 	
 	    _this.updateState = _this.updateState.bind(_this);
