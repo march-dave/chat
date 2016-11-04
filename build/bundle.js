@@ -70,6 +70,7 @@
 	
 	// import Header from './components/Headers';
 	
+	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
@@ -78,52 +79,349 @@
 	
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
-	    _this.state = {
-	      //  data: 'Initial data...'
-	      data: []
-	    };
-	
-	    _this.updateState = _this.updateState.bind(_this);
-	
+	    _this.handleChange = _this.handleChange.bind(_this);
+	    _this.handleAuthorChange = _this.handleAuthorChange.bind(_this);
+	    _this.handleDateChange = _this.handleDateChange.bind(_this);
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    _this.state = { items: [], title: '', author: '', date: '' };
 	    return _this;
 	  }
 	
 	  _createClass(App, [{
-	    key: 'updateState',
-	    value: function updateState(e) {
-	      this.setState({ data: e.target.value });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'This is the React App',
-	        _react2.default.createElement(_Content2.default, { headerPros: this.props.contentProp }),
-	        _react2.default.createElement('input', { type: 'text', value: this.state.data, onChange: this.updateState }),
 	        _react2.default.createElement(
-	          'h4',
+	          'h3',
 	          null,
-	          this.state.data
+	          'Stage'
 	        ),
+	        _react2.default.createElement(TodoList, { items: this.state.items }),
 	        _react2.default.createElement(
-	          'h5',
-	          null,
-	          this.props.appHeaderProp
+	          'form',
+	          { onSubmit: this.handleSubmit },
+	          _react2.default.createElement('input', { onChange: this.handleChange, value: this.state.title }),
+	          _react2.default.createElement('input', { onChange: this.handleAuthorChange, value: this.state.author }),
+	          _react2.default.createElement('input', { onChange: this.handleDateChange, value: this.state.date }),
+	          _react2.default.createElement(
+	            'button',
+	            null,
+	            'Add #' + (this.state.items.length + 1)
+	          )
 	        )
 	      );
+	    }
+	  }, {
+	    key: 'handleChange',
+	    value: function handleChange(e) {
+	      this.setState({ title: e.target.value });
+	    }
+	  }, {
+	    key: 'handleAuthorChange',
+	    value: function handleAuthorChange(e) {
+	      this.setState({ author: e.target.value });
+	    }
+	  }, {
+	    key: 'handleDateChange',
+	    value: function handleDateChange(e) {
+	      this.setState({ date: e.target.value });
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      var newItem = {
+	        title: this.state.title,
+	        author: this.state.author,
+	        date: this.state.date,
+	        id: Date.now()
+	      };
+	      this.setState(function (prevState) {
+	        return {
+	          items: prevState.items.concat(newItem),
+	          title: '',
+	          author: '',
+	          date: ''
+	        };
+	      });
 	    }
 	  }]);
 	
 	  return App;
 	}(_react2.default.Component);
 	
-	_reactDom2.default.render(_react2.default.createElement(App, { appHeaderProp: 'header Props22222', contentProp: 'I am the Content Props' }), app);
+	var TodoList = function (_React$Component2) {
+	  _inherits(TodoList, _React$Component2);
 	
-	// <Header title={this.props.headerTitle} />
-	// <Content title={this.props.contentTitle} body={this.props.contentBody}/>
-	// ReactDOM.render(<App contentTitle="Welcome Content" contentBody="Welcome Content Body"/> , document.getElementById('app'));
+	  function TodoList() {
+	    _classCallCheck(this, TodoList);
+	
+	    return _possibleConstructorReturn(this, (TodoList.__proto__ || Object.getPrototypeOf(TodoList)).apply(this, arguments));
+	  }
+	
+	  _createClass(TodoList, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'ul',
+	        null,
+	        this.props.items.map(function (item) {
+	          return _react2.default.createElement(
+	            'li',
+	            { key: item.id },
+	            item.title,
+	            ' - ',
+	            item.author,
+	            ' - ',
+	            item.date
+	          );
+	        })
+	      );
+	    }
+	  }]);
+	
+	  return TodoList;
+	}(_react2.default.Component);
+	
+	_reactDom2.default.render(_react2.default.createElement(App, null), app);
+	
+	// class App extends React.Component {
+	//
+	//   constructor(props) {
+	//     super(props);
+	//
+	//     this.state = {};
+	//     this.state.filterText = "";
+	//     this.state.products = [
+	//       {
+	//         id: 1,
+	//         category: 'Sporting Goods',
+	//         price: '49.99',
+	//         qty: 12,
+	//         name: 'Football'
+	//       }, {
+	//         id: 2,
+	//         category: 'Sporting Goods',
+	//         price: '9.99',
+	//         qty: 15,
+	//         name: 'Baseball'
+	//       }, {
+	//         id: 3,
+	//         category: 'Sporting Goods',
+	//         price: '29.99',
+	//         qty: 14,
+	//         name: 'Basketball'
+	//       }, {
+	//         id: 6,
+	//         category: 'Electronics',
+	//         price: '199.99',
+	//         qty: 23,
+	//         name: 'Nexu 7'
+	//       }
+	//     ];
+	//
+	//   }
+	//   handleUserInput(filterText) {
+	//     this.setState({filterText: filterText});
+	//   };
+	//   handleRowDel(product) {
+	//     var index = this.state.products.indexOf(product);
+	//     this.state.products.splice(index, 1);
+	//     this.setState(this.state.products);
+	//   };
+	//
+	//   handleAddEvent(evt) {
+	//     var id = (+ new Date() + Math.floor(Math.random() * 999999)).toString(36);
+	//     var product = {
+	//       id: id,
+	//       name: "",
+	//       price: "",
+	//       category: "",
+	//       qty: 0
+	//     }
+	//     this.state.products.push(product);
+	//     this.setState(this.state.products);
+	//   }
+	//
+	//   handleProductTable(evt) {
+	//     var item = {
+	//       id: evt.target.id,
+	//       name: evt.target.name,
+	//       value: evt.target.value
+	//     };
+	//     var products = this.state.products;
+	//
+	//     var neApp = products.map(function(product) {
+	//       for (var key in product) {
+	//         if (key == item.name && product.id == item.id) {
+	//           product[key] = item.value;
+	//
+	//         }
+	//       }
+	//       return product;
+	//     });
+	//     this.setState(neApp);
+	//     console.log(this.state.products);
+	//   };
+	//   render() {
+	//
+	//     return (
+	//       <div>
+	//         <SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)}/>
+	//         <ProductTable onProductTableUpdate={this.handleProductTable.bind(this)} onRowAdd={this.handleAddEvent.bind(this)} onRowDel={this.handleRowDel.bind(this)} products={this.state.products} filterText={this.state.filterText}/>
+	//       </div>
+	//     );
+	//
+	//   }
+	//
+	// }
+	// class SearchBar extends React.Component {
+	//   handleChange() {
+	//     this.props.onUserInput(this.refs.filterTextInput.value);
+	//   }
+	//   render() {
+	//     return (
+	//       <div>
+	//
+	//         <input type="text" placeholder="Search..." value={this.props.filterText} ref="filterTextInput" onChange={this.handleChange.bind(this)}/>
+	//
+	//       </div>
+	//
+	//     );
+	//   }
+	//
+	// }
+	//
+	// class ProductTable extends React.Component {
+	//
+	//   render() {
+	//     var onProductTableUpdate = this.props.onProductTableUpdate;
+	//     var rowDel = this.props.onRowDel;
+	//     var filterText = this.props.filterText;
+	//     var product = this.props.products.map(function(product) {
+	//       if (product.name.indexOf(filterText) === -1) {
+	//         return;
+	//       }
+	//       return (<ProductRow onProductTableUpdate={onProductTableUpdate} product={product} onDelEvent={rowDel.bind(this)} key={product.id}/>)
+	//     });
+	//     return (
+	//       <div>
+	//
+	//
+	//       <button type="button" onClick={this.props.onRowAdd} className="btn btn-success pull-right">Add</button>
+	//         <table className="table table-bordered">
+	//           <thead>
+	//             <tr>
+	//               <th>Name</th>
+	//               <th>price</th>
+	//               <th>quantity</th>
+	//               <th>category</th>
+	//             </tr>
+	//           </thead>
+	//
+	//           <tbody>
+	//             {product}
+	//
+	//           </tbody>
+	//
+	//         </table>
+	//       </div>
+	//     );
+	//
+	//   }
+	//
+	// }
+	//
+	// class ProductRow extends React.Component {
+	//   onDelEvent() {
+	//     this.props.onDelEvent(this.props.product);
+	//
+	//   }
+	//   render() {
+	//
+	//     return (
+	//       <tr className="eachRow">
+	//         <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+	//           "type": "name",
+	//           value: this.props.product.name,
+	//           id: this.props.product.id
+	//         }}/>
+	//         <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+	//           type: "price",
+	//           value: this.props.product.price,
+	//           id: this.props.product.id
+	//         }}/>
+	//         <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+	//           type: "qty",
+	//           value: this.props.product.qty,
+	//           id: this.props.product.id
+	//         }}/>
+	//         <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+	//           type: "category",
+	//           value: this.props.product.category,
+	//           id: this.props.product.id
+	//         }}/>
+	//         <td className="del-cell">
+	//           <input type="button" onClick={this.onDelEvent.bind(this)} value="X" className="del-btn"/>
+	//         </td>
+	//       </tr>
+	//     );
+	//
+	//   }
+	//
+	// }
+	// class EditableCell extends React.Component {
+	//
+	//   render() {
+	//     return (
+	//       <td>
+	//         <input type='text' name={this.props.cellData.type} id={this.props.cellData.id} value={this.props.cellData.value} onChange={this.props.onProductTableUpdate}/>
+	//       </td>
+	//     );
+	//
+	//   }
+	//
+	// }
+	//
+	// ReactDOM.render( <App / > , app);
+	
+	
+	// class App extends React.Component {
+	//
+	//   constructor(props) {
+	//       super(props);
+	//
+	//       this.state = {
+	//         //  data: 'Initial data...'
+	//         data: []
+	//       }
+	//
+	//       this.updateState = this.updateState.bind(this);
+	//
+	//    };
+	//
+	//    updateState(e) {
+	//       this.setState({data: e.target.value});
+	//    }
+	//
+	//   render() {
+	//     return (
+	//         <div>
+	//           This is the React App
+	//           <Content headerPros={this.props.contentProp}/>
+	//           <input type='text' value={this.state.data} onChange={this.updateState} />
+	//           <h4>{this.state.data}</h4>
+	//
+	//           <h5>{this.props.appHeaderProp}</h5>
+	//
+	//         </div>
+	//     );
+	//   }
+	// }
+	//
+	// ReactDOM.render(<App appHeaderProp="header Props22222" contentProp="I am the Content Props" />, app);
 
 /***/ },
 /* 1 */
