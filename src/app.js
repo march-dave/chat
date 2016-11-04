@@ -36,7 +36,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App appHeaderProp="header Props22222" contentProp="I am the Content Props" />, document.getElementById('app'));
+ReactDOM.render(<App appHeaderProp="header Props22222" contentProp="I am the Content Props" />, app);
 
 // <Header title={this.props.headerTitle} />
 // <Content title={this.props.contentTitle} body={this.props.contentBody}/>

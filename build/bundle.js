@@ -119,7 +119,7 @@
 	  return App;
 	}(_react2.default.Component);
 	
-	_reactDom2.default.render(_react2.default.createElement(App, { appHeaderProp: 'header Props22222', contentProp: 'I am the Content Props' }), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(App, { appHeaderProp: 'header Props22222', contentProp: 'I am the Content Props' }), app);
 	
 	// <Header title={this.props.headerTitle} />
 	// <Content title={this.props.contentTitle} body={this.props.contentBody}/>
