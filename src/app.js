@@ -62,11 +62,29 @@ class App extends React.Component {
 class TodoList extends React.Component {
   render() {
     return (
-      <ul>
-        {this.props.items.map(item => (
-          <li key={item.id}>{item.title} - {item.author} - {item.date}</li>
-        ))}
-      </ul>
+
+      <div>
+        <ul>
+          {this.props.items.map(item => (
+            <li key={item.id}>{item.title} - {item.author} - {item.date}</li>
+          ))}
+        </ul>
+
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th>title</th>
+              <th>author</th>
+              <th>date</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+          </tbody>
+
+        </table>
+      </div>
     );
   }
 }
