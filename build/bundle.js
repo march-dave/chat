@@ -165,19 +165,61 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'ul',
+	        'div',
 	        null,
-	        this.props.items.map(function (item) {
-	          return _react2.default.createElement(
-	            'li',
-	            { key: item.id },
-	            item.title,
-	            ' - ',
-	            item.author,
-	            ' - ',
-	            item.date
-	          );
-	        })
+	        _react2.default.createElement('ul', null),
+	        _react2.default.createElement(
+	          'table',
+	          { className: 'table table-bordered' },
+	          _react2.default.createElement(
+	            'thead',
+	            null,
+	            _react2.default.createElement(
+	              'tr',
+	              null,
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'title'
+	              ),
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'author'
+	              ),
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'date'
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'tbody',
+	            null,
+	            this.props.items.map(function (item) {
+	              return _react2.default.createElement(
+	                'tr',
+	                null,
+	                _react2.default.createElement(
+	                  'td',
+	                  null,
+	                  item.title
+	                ),
+	                _react2.default.createElement(
+	                  'td',
+	                  null,
+	                  item.author
+	                ),
+	                _react2.default.createElement(
+	                  'td',
+	                  null,
+	                  item.date
+	                )
+	              );
+	            })
+	          )
+	        )
 	      );
 	    }
 	  }]);

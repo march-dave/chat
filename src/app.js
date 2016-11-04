@@ -65,9 +65,7 @@ class TodoList extends React.Component {
 
       <div>
         <ul>
-          {this.props.items.map(item => (
-            <li key={item.id}>{item.title} - {item.author} - {item.date}</li>
-          ))}
+
         </ul>
 
         <table className="table table-bordered">
@@ -80,7 +78,13 @@ class TodoList extends React.Component {
           </thead>
 
           <tbody>
-
+            {this.props.items.map(item => (
+              <tr>
+                <td>{item.title}</td>
+                <td>{item.author}</td>
+                <td>{item.date}</td>
+              </tr>
+            ))}
           </tbody>
 
         </table>
