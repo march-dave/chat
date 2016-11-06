@@ -64,10 +64,6 @@ class AuthorList extends React.Component {
     return (
 
       <div>
-        <ul>
-
-        </ul>
-
         <table className="table table-bordered">
           <thead>
             <tr>
