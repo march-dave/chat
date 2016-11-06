@@ -18,7 +18,7 @@ class App extends React.Component {
     return (
       <div>
         <h3>Stage</h3>
-        <TodoList items={this.state.items} />
+        <AuthorList items={this.state.items} />
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} value={this.state.title} />
           <input onChange={this.handleAuthorChange} value={this.state.author} />
@@ -59,7 +59,7 @@ class App extends React.Component {
   }
 }
 
-class TodoList extends React.Component {
+class AuthorList extends React.Component {
   render() {
     return (
 
